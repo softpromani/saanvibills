@@ -1,0 +1,26 @@
+<?php
+return
+[
+    'home'=>'Home',
+    'customer'=>'Customer',
+    'first name'=>'First Name',
+    'last name'=>'Last Name',
+    'email'=>'Email',
+    'mobile'=>'Mobile',
+    'ID/ TPIN/ TIN NO*'=>'ID/ TPIN/ TIN NO*',
+    'pincode'=>'Pincode',
+    'country'=>'Country',
+    'state'=>'State',
+    'city'=>'City',
+    'address'=>'Address',
+    'sign in'=>'Sign in',
+    'password'=>'Password',
+    'confirm password'=>'Confirm Password',
+    'vendor'=>'Vendor',
+    'create permission'=>'Create Permission',
+    'fech permission'=>'Fetch Permission',
+    'sr_no'=>'Sr.no',
+    'action'=>'Action',
+    'status'=>'Status',
+    'role name'=>'Role Name',
+];
