@@ -23,4 +23,10 @@ return
     'action'=>'Action',
     'status'=>'Status',
     'role name'=>'Role Name',
+    'basic_info' =>'Basic Information',
+    'company_name'=>'Company Name:',
+    'company_logo' =>'Company Logo:',
+    'company_stamp' =>'Company Stamp Logo:',
+    'profile_image' =>'Profile Image:',
+    'save' =>'Save',
 ];

@@ -16,12 +16,12 @@ class AuthController extends Controller
         'email'=>'required',
         'password'=>'required'
        ]);
-
+ 
        $res = Auth::guard('vendor')->attempt([
         'email' => $request->email,
         'password' => $request->password,
         ]);
-        if($res){
+        if($res){ 
             return redirect()->route('dashboard')->with('toast_success','User login successfully !');
         }else{
             return back()->with('toast_error','Credencials not matched!');
