@@ -193,7 +193,6 @@
                 })
                 $('#exampleModal4').modal('show');
             }
-
         });
     </script>
 @endsection
