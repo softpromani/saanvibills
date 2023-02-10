@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vendors', function (Blueprint $table) {
+        Schema::create('vendore_bank_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('owner_id');
             $table->unsignedBigInteger('created_by');
-            $table->string('fname');
-            $table->string('lname');
-            $table->string('email');
-            $table->integer('phone');
-            $table->string('password');
+            $table->unsignedBigInteger('vendore_id');
+            $table->unsignedBigInteger('company_id');
+            $table->string('bank_name');
+            $table->string('bank_branch');
+            $table->string('bank_ifsc');
+            $table->string('account_no');
+            $table->string('ad_code');
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendors');
+        Schema::dropIfExists('vendore_bank_details');
     }
 };

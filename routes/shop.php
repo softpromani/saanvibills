@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Router;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ use Illuminate\Http\Request;
 Route::get('shop',[ShopController::class,'index'])->name('shop');
 Route::get('shop-show',[ShopController::class,'show'])->name('show');
 Route::post('shop-store',[ShopController::class,'store'])->name('store');
+Route::post('vedore-details',[ShopController::class,'vendore_details'])->name('vendore_details');
+

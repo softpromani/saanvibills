@@ -5,6 +5,7 @@ use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\RolePermission\PermissionController;
 use App\Http\Controllers\RolePermission\RoleController;
 use App\Models\PermissionName;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,7 @@ Route::resource('customer', CustomerController::class);
 Route::get('customer_view',[CustomerController::class,'customer_view'])->name('customer.view');
 Route::get('login_view',[AuthController::class,'login']);
 Route::post('login',[AuthController::class,'store']);
+Route::get('logout',function(){
+        Auth::guard('vendor')->logout();
+        return back()->with('toast_success','User logout successfully !');
+});

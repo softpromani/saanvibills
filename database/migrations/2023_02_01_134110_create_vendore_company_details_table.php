@@ -13,15 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vendors', function (Blueprint $table) {
+        Schema::create('vendore_company_details', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('vendore_id');
             $table->unsignedBigInteger('owner_id');
             $table->unsignedBigInteger('created_by');
-            $table->string('fname');
-            $table->string('lname');
-            $table->string('email');
-            $table->integer('phone');
-            $table->string('password');
+            $table->string('company_name');
+            $table->string('company_address');
+            $table->string('invoice_series');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+            $table->string('pin');
+            $table->string('gstin_tan_pan');
+            $table->string('iec');
             $table->timestamps();
         });
     }
@@ -33,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendors');
+        Schema::dropIfExists('vendore_company_details');
     }
 };

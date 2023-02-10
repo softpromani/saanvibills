@@ -43,4 +43,9 @@ class ShopController extends Controller
        }
 
     }
+
+    public function vendore_details(Request $request)
+    {
+        dd(Filepond::field($request->clogo));
+    }
 }
