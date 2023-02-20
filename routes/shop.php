@@ -17,6 +17,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('shop',[ShopController::class,'index'])->name('shop');
-Route::get('shop-show',[ShopController::class,'show'])->name('show');
-Route::post('shop-store',[ShopController::class,'store'])->name('store');
+

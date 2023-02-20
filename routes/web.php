@@ -22,7 +22,5 @@ Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
 
-Route::resource('customer', CustomerController::class);
-Route::get('customer_view',[CustomerController::class,'customer_view'])->name('customer.view');
 Route::get('login_view',[AuthController::class,'login']);
 Route::post('login',[AuthController::class,'store']);
