@@ -18,8 +18,4 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('shop',[ShopController::class,'index'])->name('shop');
-Route::get('shop-show',[ShopController::class,'show'])->name('show');
-Route::post('shop-store',[ShopController::class,'store'])->name('store');
-Route::post('vedore-details',[ShopController::class,'vendore_details'])->name('vendore_details');
 

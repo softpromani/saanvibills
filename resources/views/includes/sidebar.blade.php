@@ -67,7 +67,7 @@
                         <a href="{{url('admin/permission')}}">{{__('sidebar.permission')}}</a>
                     </li>
                     <li>
-                        <a href="{{route('assign.permission')}}"> {{__('sidebar.rolehaspermissions')}} </a>
+                        <a href="{{route('admin.assign.permission')}}"> {{__('sidebar.rolehaspermissions')}} </a>
                     </li>
                 </ul>
             </li>
@@ -84,10 +84,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="register" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="{{route('customer.index')}}"> {{__('sidebar.register')}} </a>
+                        <a href="{{route('admin.customer.index')}}"> {{__('sidebar.register')}} </a>
                     </li>
                     <li>
-                        <a href="{{route('customer.view')}}">{{__('sidebar.view customer')}}</a>
+                        <a href="{{route('admin.customer.view')}}">{{__('sidebar.view customer')}}</a>
                     </li>
                 </ul>
             </li>
@@ -103,10 +103,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="vendor" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="{{route('shop')}}"> {{__('sidebar.register')}} </a>
+                        <a href="{{route('admin.shop.')}}"> {{__('sidebar.register')}} </a>
                     </li>
                     <li>
-                        <a href="{{route('show')}}">{{__('sidebar.view vendor')}}</a>
+                        <a href="{{route('admin.shop.show')}}">{{__('sidebar.view vendor')}}</a>
                     </li>
                 </ul>
             </li>
