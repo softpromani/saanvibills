@@ -24,3 +24,11 @@ Route::get('/', function () {
 
 Route::get('login_view',[AuthController::class,'login']);
 Route::post('login',[AuthController::class,'store']);
+Route::group(['prefix'=>'auth','as'=>'auth.'],function(){
+    Route::get('shop',[AuthController::class,'shop_view'])->name('shop-view');
+    Route::post('shop-login',[AuthController::class,'shop_login'])->name('shop-login');
+    Route::get('customer',[AuthController::class,'customer_view'])->name('customer-view');
+    Route::post('customer-login',[AuthController::class,'customer_login'])->name('customer-login');
+    Route::get('admin',[AuthController::class,'admin_view'])->name('admin-view');
+    Route::post('admin-login',[AuthController::class,'admin_login'])->name('admin-login');
+});
