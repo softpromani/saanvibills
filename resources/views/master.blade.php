@@ -27,7 +27,9 @@
         <div class="search-overlay"></div>
 
         <!--  BEGIN SIDEBAR  -->
-        @include('includes.sidebar')
+        <!-- @include('includes.sidebar') -->
+        @include('includes.customer-sidebar')
+
         <!--  END SIDEBAR  -->
 
 

@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Authentication;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthLoginRequest;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Currency;
+use App\Models\State;
+use App\Models\TimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -72,4 +77,5 @@ class AuthController extends Controller
             return back()->with('toast_error','Credencials not matched!');
         }
     }
+  
 }

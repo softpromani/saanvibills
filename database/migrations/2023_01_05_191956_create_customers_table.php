@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('email');
+            $table->string('password');
             $table->string('mobile');
             $table->string('tin_no');
             $table->string('pincode');
