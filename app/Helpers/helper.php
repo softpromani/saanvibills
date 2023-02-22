@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Currency;
 use App\Models\customer\Customer;
+use App\Models\PermissionName;
 use App\Models\ProjectError;
 use App\Models\State;
 use App\Models\TimeZone;
@@ -80,12 +81,16 @@ class Helper
 
     public static function getGuard()
     {
-        if(Auth::guard(Role::$admin)->check())
+        if(Auth::guard(PermissionName::$admin)->check())
         {
-            return 'admin';
+            return PermissionName::$admin;
         }
-        else if(Auth::guard(Role::$customer)->check()){
-            return 'customer';
+        else if(Auth::guard(PermissionName::$shop)->check()){
+            return PermissionName::$shop;
+        }
+        else if(Auth::guard(PermissionName::$customer)->check())
+        {
+            return PermissionName::$customer;
         }
     }
 }

@@ -10,7 +10,9 @@ class PermissionName extends Model
 {
     use HasFactory;
     protected $guarded=[];
-
+    public $admin='admin';
+    public $shop='shop';
+    public $customer='customer';
     public function permissions()
     {
         return $this->hasMany(Permission::class,'perm_id');
