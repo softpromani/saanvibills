@@ -16,7 +16,7 @@
     </div>
     <!-- /BREADCRUMB -->
     <div class="page-meta card p-3 ">
-        <form class="row g-3" action="{{route('customer.store')}}" method="POST">
+        <form class="row g-3" action="{{route('admin.customer.store')}}" method="POST">
             @csrf
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">{{__('form.first name')}}</label>
