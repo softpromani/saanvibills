@@ -22,7 +22,7 @@ class AuthController extends Controller
         'password' => $request->password,
         ]);
         if($res){ 
-            return redirect()->route('dashboard')->with('toast_success','User login successfully !');
+            return redirect()->route('dashboard')->with('toast_success','Vendor login successfully !');
         }else{
             return back()->with('toast_error','Credencials not matched!');
         }

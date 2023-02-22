@@ -7,6 +7,7 @@ use App\Models\Vendor;
 Use Alert;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use RahulHaque\Filepond\Facades\Filepond;
 
 class ShopController extends Controller
 {

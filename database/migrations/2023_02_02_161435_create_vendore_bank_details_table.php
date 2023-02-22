@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('bank_ifsc');
             $table->string('account_no');
             $table->string('ad_code');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

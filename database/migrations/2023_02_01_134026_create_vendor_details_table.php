@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('vendore_mobile');
             $table->string('signature');
             $table->string('vendore_address');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

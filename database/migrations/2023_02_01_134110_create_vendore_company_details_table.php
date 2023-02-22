@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('pin');
             $table->string('gstin_tan_pan');
             $table->string('iec');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
