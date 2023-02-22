@@ -40,6 +40,9 @@ class AuthController extends Controller
         if(Auth::guard('shop')->attempt(['email'=>$req->email,'password'=>$req->password],$req->remember??false)){
             return redirect()->route('shop.dashboard');
         }
+        else{
+            return back()->with('toast_error','Credencials not matched!');
+        }
     }
     public function customer_view()
     {
@@ -51,6 +54,9 @@ class AuthController extends Controller
         if(Auth::guard('customer')->attempt(['email'=>$req->email,'password'=>$req->password],$req->remember??false)){
             return redirect()->route('customer.dashboard');
         }
+        else{
+            return back()->with('toast_error','Credencials not matched!');
+        }
     }
     public function admin_view()
     {
@@ -61,6 +67,9 @@ class AuthController extends Controller
     {
         if(Auth::guard('admin')->attempt(['email'=>$req->email,'password'=>$req->password],$req->remember??false)){
             return redirect()->route('admin.dashboard');
+        }
+        else{
+            return back()->with('toast_error','Credencials not matched!');
         }
     }
 }
