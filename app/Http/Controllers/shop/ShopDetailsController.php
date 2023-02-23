@@ -15,7 +15,7 @@ use App\Models\VendoreBankDetail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class ShopDetailsController extends Controller
 {

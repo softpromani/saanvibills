@@ -27,9 +27,11 @@
         <div class="search-overlay"></div>
 
         <!--  BEGIN SIDEBAR  -->
-        <!-- @include('includes.sidebar') -->
+        @if(Auth::guard(PermissionName::$customer)->check())
         @include('includes.customer-sidebar')
-
+        @elseif(Auth::guard(PermissionName::$shop)->check())
+        @include('includes.shop-sidebar')
+        @endif
         <!--  END SIDEBAR  -->
 
 
