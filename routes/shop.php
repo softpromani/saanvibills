@@ -26,3 +26,4 @@ Route::post('vendore-bank-details',[ShopDetailsController::class,'vendorebank'])
 Route::get('vendore-state/{id}',[ShopDetailsController::class,'vendorestate'])->name('vendore_state');
 Route::get('vendore-city/{id}',[ShopDetailsController::class,'vendorecity'])->name('vendore_city');
 Route::get('dashboard',[ShopDetailsController::class,'dashboard'])->name('dashboard');
+
