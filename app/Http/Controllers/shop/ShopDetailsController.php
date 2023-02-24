@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\shop;
 
+use App\Helpers\ImageUpload;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
@@ -42,8 +43,8 @@ class ShopDetailsController extends Controller
        VendorDetail::create([
         'vendore_id' => Auth::guard('vendor')->id(),
         'company_name' => $request->cname,
-        'logo' => $clogo,
-        'satamp_logo' => $stamplogo,
+        'logo' => $request->hasFile('clogo')?ImageUpload::simpleUpload('shop',$request->clogo,'Logo'):'',
+        'satamp_logo' => $request->hasFile('stamplogo')?ImageUpload::simpleUpload('shop',$request->stamplogo,'Logo'):'',
         'profile_image' => $profile,
        ]);
 
