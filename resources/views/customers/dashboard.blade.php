@@ -24,7 +24,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{ __('form.basic_info') }}</h5>
                 </div>
-                <form method="post" action="{{route('vendore_details')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('shop.vendore_details')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
@@ -80,7 +80,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{ __('form.vendore_basic_info') }}</h5>
                 </div>
-                <form method="post" action="{{route('vendore_info')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('shop.vendore_info')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
@@ -147,7 +147,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">{{ __('form.company_details') }}</h5>
                 </div>
-                <form method="post" action="{{route('vendore_company')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('shop.vendore_company')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
@@ -226,7 +226,7 @@
                 @php
                     $data = Session::get('vendoredetails');
                 @endphp
-                <form method="post" action="{{route('vendore_bank')}}">
+                <form method="post" action="{{route('shop.vendore_bank')}}">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
