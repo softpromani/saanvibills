@@ -20,4 +20,6 @@ return [
     'register'=>'Register',
     'view vendor'=>'View Vendor',
     'assign permission' =>'Assign Permission',
+    'billing'=>'Billing',
+    'generatebill'=>'Generate Billing',
 ];

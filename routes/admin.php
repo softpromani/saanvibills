@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 Route::get('role',[RoleController::class,'RolePage']);
 Route::post('create_role',[RoleController::class,'CreateRole']);
 Route::get('permission',[PermissionController::class,'PermissionPage']);
-Route::post('create_permission',[PermissionController::class,'storePermission'])->name('store.permission');
+Route::post('create_permission',[PermissionController::class,'storePermission'])->name('permission');
 Route::get('assign_permission_view',[PermissionController::class,'assign_permission_view'])->name('assign.permission');
 Route::post('assign_permission',[PermissionController::class,'assign_permission'])->name('assign_permission');
 Route::get('fetch_permissions',[PermissionController::class,'fetch_permissions'])->name('fetch.permission');

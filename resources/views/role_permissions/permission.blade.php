@@ -16,7 +16,7 @@
         </div>
         <!-- /BREADCRUMB -->
         <div class="page-meta card p-3 ">
-            <form action="{{route('store.permission')}}" method="POST">
+            <form action="{{route('admin.permission')}}" method="POST">
                 @csrf
                 <div class="input-group">
                     <input type="text" class="form-control" name="permission" placeholder="Permission Name"

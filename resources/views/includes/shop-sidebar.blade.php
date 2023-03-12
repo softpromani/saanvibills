@@ -50,29 +50,6 @@
                 </a>
             </li>
             <li class="menu">
-                <a href="#invoice" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                        <span>{{__('sidebar.roles/permissions')}}</span>
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="invoice" data-bs-parent="#accordionExample">
-                    <li>
-                        <a href="{{url('admin/role')}}"> {{__('sidebar.role')}} </a>
-                    </li>
-                    <li>
-                        <a href="{{url('admin/permission')}}">{{__('sidebar.permission')}}</a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.assign.permission')}}"> {{__('sidebar.rolehaspermissions')}} </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu">
                 <a href="#register" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -95,7 +72,7 @@
                 <a href="#vendor" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                        <span>{{__('sidebar.vendor')}}</span>
+                        <span>{{__('sidebar.billing')}}</span>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -103,10 +80,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="vendor" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="{{route('admin.shop.')}}"> {{__('sidebar.register')}} </a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.shop.show')}}">{{__('sidebar.view vendor')}}</a>
+                        <a href="{{route('shop.billing.view')}}"> {{__('sidebar.generatebill')}} </a>
                     </li>
                 </ul>
             </li>

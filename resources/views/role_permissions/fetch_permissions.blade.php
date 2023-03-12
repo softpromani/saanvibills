@@ -4,7 +4,7 @@
         Permissions
     </div>
     <div class="card-body">
-        <form action="{{route('assign_permission')}}" method="post">
+        <form action="{{route('admin.assign_permission')}}" method="post">
             @csrf
             <input type="hidden" name='roleid' value="{{ $selectrole->id }}">
             <table class="table table-bordered">
