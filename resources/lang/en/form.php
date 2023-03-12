@@ -47,4 +47,9 @@ return
     'accountno' =>'Account No.',
     'bank_details' =>'Bank Details.',
     'adcode' =>'ADCode',
+    'invoiceno' =>'Invoice No',
+    'date' =>'Date*',
+    'customername' =>'Customer Name*',
+    'vehicleno' =>'Vehicle No*',
+    'products' =>'Products',
 ];
