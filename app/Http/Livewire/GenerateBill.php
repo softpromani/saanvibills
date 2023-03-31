@@ -77,11 +77,16 @@ class GenerateBill extends Component
 
     public function search_customer()
     {
+       
         $search=$this->search_customer_val;
         // dd($search);
        $this->customer=Auth::guard(Helper::getGuard())->user()->customers->where(function($query) use($search){
         return $query->where('mobile',$search)->orWhere('email',$search);
        })->first();
+       dd($this->customer);
+       if(empty($this->customer)){
+        Session::flash('error','Customer Not Available');
+       }
 
     }
   
@@ -133,6 +138,8 @@ class GenerateBill extends Component
         {
             Alert::error('Something Went Wrong');
         }
+
+        return redirect()->route('shop.billing.view');
     }
 
     public function customer_save()

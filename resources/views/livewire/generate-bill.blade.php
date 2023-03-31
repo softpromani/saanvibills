@@ -28,6 +28,7 @@
 
                 </div>
             </form>
+            <div class="row"><div class="col-12 text-center d-flex justify-content-center">@if(Session::has('error')) <span class="text-danger">{{ Session::get('error') }}</span> @endif</div></div>
         </div>
         <div class="page-meta card p-3 ">
             <form class="row g-3" action="{{ route('admin.customer.store') }}" method="POST">
@@ -78,7 +79,6 @@
       <div>{{ $error }}</div>
   @endforeach
 @endif --}}
-<br><br><br><br><br><br>
             <form class="row g-3" wire:submit.prevent="submit" method="POST">
                 @csrf
                 <div class="table-responsive m-2">
@@ -90,7 +90,7 @@
                                 <th>HSN Code</th>
                                 <th>Quantity</th>
                                 <th>Unit</th>
-                                <th>Weight</th>
+                                <th>Weight (in Kg)</th>
                                 <th class="text-center">Rate</th>
                                 <th class="text-center" colspan="2">Taxable Value</th>
                             </tr>
@@ -123,7 +123,7 @@
                                     @error('rate.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='taxableval.0'>
+                                    <input type="text" class="border-0" wire:model='taxableval.0' readonly>
                                     @error('taxableval.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
