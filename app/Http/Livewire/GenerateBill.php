@@ -41,7 +41,7 @@ class GenerateBill extends Component
         'unit.*'=>'required',
         'weight.*'=>'required|numeric',
         'rate.*'=>'required|numeric',
-        'taxableval.*'=>'required|numeric',
+        'taxableval.*'=>'required',
         'total_amount'=>'required|numeric',
         'total_weight'=>'required|numeric'
 
