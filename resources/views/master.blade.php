@@ -3,6 +3,7 @@
 <head>
 <title>@yield('title')</title>
 @include('includes.head')
+@livewireStyles
 @yield('style')
 </head>
 <body class="layout-boxed">
@@ -50,6 +51,7 @@
     @include('includes.foot')
     @yield('script')
     @include('sweetalert::alert')
+    @livewireScripts
 </body>
 
 </html>

@@ -81,16 +81,17 @@ class Helper
 
     public static function getGuard()
     {
-        if(Auth::guard(PermissionName::$admin)->check())
-        {
-            return PermissionName::$admin;
-        }
-        else if(Auth::guard(PermissionName::$shop)->check()){
+        if(Auth::guard(PermissionName::$shop)->check()){
             return PermissionName::$shop;
         }
         else if(Auth::guard(PermissionName::$customer)->check())
         {
             return PermissionName::$customer;
         }
+        elseif(Auth::guard(PermissionName::$admin)->check())
+        {
+            return PermissionName::$admin;
+        }
+      
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Billing\BillingController;
 use App\Http\Controllers\shop\ShopController;
 use App\Http\Controllers\shop\ShopDetailsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Livewire\GenerateBill;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Router;
 use Illuminate\Http\Request;
@@ -28,4 +29,4 @@ Route::get('vendore-state/{id}',[ShopDetailsController::class,'vendorestate'])->
 Route::get('vendore-city/{id}',[ShopDetailsController::class,'vendorecity'])->name('vendore_city');
 Route::get('dashboard',[ShopDetailsController::class,'dashboard'])->name('dashboard');
 
-Route::get('billing-view',[BillingController::class,'index'])->name('billing.view');
+Route::get('billing-view',GenerateBill::class)->name('billing.view');
