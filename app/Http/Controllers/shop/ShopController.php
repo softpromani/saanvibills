@@ -5,8 +5,10 @@ namespace App\Http\Controllers\shop;
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
 Use Alert;
+use App\Models\Bill;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RahulHaque\Filepond\Facades\Filepond;
 
 class ShopController extends Controller
@@ -48,5 +50,9 @@ class ShopController extends Controller
     public function vendore_details(Request $request)
     {
         dd(Filepond::field($request->clogo));
+    }
+    public function bill_show(){
+        $bill_data=Bill::where('shop_id',Auth::guard('shop')->user()->id)->latest()->get();
+        return view('shop.view_bill',compact('bill_data'));
     }
 }

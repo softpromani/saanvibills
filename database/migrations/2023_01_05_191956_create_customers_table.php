@@ -21,15 +21,18 @@ return new class extends Migration
             $table->string('password');
             $table->string('mobile');
             $table->string('tin_no');
+            $table->string('image')->nullable();
             $table->string('pincode');
-            $table->string('country');
-            $table->string('state');
-            $table->string('city');
-            $table->string('address');
+            $table->string('currency')->nullable();
+            $table->unsignedBigInteger('timezone_id');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('state');
+            $table->unsignedBigInteger('city');
+            $table->longText('address')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

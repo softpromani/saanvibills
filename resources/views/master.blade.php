@@ -32,6 +32,8 @@
         @include('includes.customer-sidebar')
         @elseif(Auth::guard(App\Models\PermissionName::$shop)->check())
         @include('includes.shop-sidebar')
+        @elseif(Auth::guard(App\Models\PermissionName::$admin)->check())
+        @include('includes.admin-sidebar')
         @endif
         <!--  END SIDEBAR  -->
 

@@ -38,25 +38,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($customer as $data)
+                                    @foreach ($shop_has_customer as $data)
                                     <tr>
                                         <td>{{$loop->index+1??''}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <div class="usr-img-frame mr-2 rounded-circle">
-                                                    <img alt="avatar" class="img-fluid rounded-circle" src="{{asset('assets/src/assets/img/boy.png')}}">
+                                                    <img alt="avatar" class="img-fluid rounded-circle" src="{{asset($data->customer->image)}}" onerror="this.onerror=null;this.src='{{asset('assets/src/assets/img/boy.png')}}';">
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{{$data->full_name??''}}</td>
-                                        <td>{{$data->email??''}}</td>
-                                        <td>{{$data->mobile??''}}</td>
-                                        <td>{{$data->tin_no??''}}</td>
-                                        <td>{{$data->pincode??''}}</td>
-                                        <td>{{$data->country??''}}</td>
-                                        <td>{{$data->state??''}}</td>
-                                        <td>{{$data->city??''}}</td>
-                                        <td>{{$data->address??''}}</td>
+                                        <td>{{$data->customer->full_name??''}}</td>
+                                        <td>{{$data->customer->email??''}}</td>
+                                        <td>{{$data->customer->mobile??''}}</td>
+                                        <td>{{$data->customer->tin_no??''}}</td>
+                                        <td>{{$data->customer->pincode??''}}</td>
+                                        <td>{{$data->customer->country->name??''}}</td>
+                                        <td>{{$data->customer->state_info->name??''}}</td>
+                                        <td>{{$data->customer->city_info->name??''}}</td>
+                                        <td>{{$data->customer->address??''}}</td>
 
                                         <td>
                                             <div class="btn-group">
@@ -65,9 +65,8 @@
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuReference1">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="#">Delete</a>
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item" href="#">Separated link</a>
                                                 </div>

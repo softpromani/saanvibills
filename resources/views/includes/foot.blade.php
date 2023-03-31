@@ -6,7 +6,8 @@
  <script src="{{ asset('assets/src/plugins/src/mousetrap/mousetrap.min.js') }}"></script>
  <script src="{{ asset('assets/layouts/vertical-dark-menu/app.js') }}"></script>
  <!-- END GLOBAL MANDATORY SCRIPTS -->
-
+<!-- Style.js for cities and countries -->
+<script src="{{ asset('assets/style.js') }}"></script>
  <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
  <script src="{{ asset('assets/src/plugins/src/apex/apexcharts.min.js') }}"></script>
  <script src="{{ asset('assets/src/assets/js/dashboard/dash_1.js') }}"></script>
