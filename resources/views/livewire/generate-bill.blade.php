@@ -35,39 +35,39 @@
                 @csrf
                 <div class="col-md-6">
                     <label for="invoice" class="form-label">{{ __('form.invoiceno') }}</label>
-                    <input type="text" placeholder="invoice no" wire:model='invoice' class="form-control"  id="invoice">
+                    <input type="text" placeholder="invoice no" wire:model='invoice' class="form-control"  id="invoice" readonly>
 
                 </div>
                 <div class="col-md-6">
                     <label for="date" class="form-label">{{ __('form.date') }}</label>
-                    <input type="date" name="date" class="form-control" wire:model='date' id="date">
+                    <input type="date" name="date" class="form-control" wire:model='date' id="date" readonly>
                 </div>
                 <div class="col-md-6">
                     <label for="name" class="form-label">{{ __('form.customername') }}</label>
-                    <input type="text" wire:model='customer.full_name' name='name'  placeholder='Customer Name' class="form-control"  id="name">
+                    <input type="text" wire:model='customer.full_name' name='name'  placeholder='Customer Name' class="form-control"  id="name" readonly>
                     @error('name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">{{ __('form.mobile') }}</label>
-                    <input type="text" placeholder="mobile no" name="mobile" wire:model='customer.mobile' class="form-control"  id="inputPassword4">
+                    <label for="mobile" class="form-label">{{ __('form.mobile') }}</label>
+                    <input type="text" placeholder="mobile no" name="mobile" wire:model='customer.mobile' class="form-control"  id="mobile" readonly>
                     @error('mobile')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
                 </div>
                 <div class="col-6">
                     <label for="inputAddress2" class="form-label">{{ __('form.ID/ TPIN/ TIN NO*') }}</label>
-                    <input type="text" name="tin_no" class="form-control" id="inputAddress2" wire:model='customer.tin_no' placeholder="ID/ TPIN/ TIN NO">
+                    <input type="text" name="tin_no" class="form-control" id="inputAddress2" wire:model='customer.tin_no' placeholder="ID/ TPIN/ TIN NO" readonly>
                 </div>
                 <div class="col-md-6">
                     <label for="inputCity" class="form-label">{{ __('form.vehicleno') }}</label>
                     <input type="text" placeholder="vehicle no" name="vehicoleno" class="form-control"
                         id="inputCity">
                 </div>
-                <div class="col-12">
+                {{-- <div class="col-12">
                     <button type="submit" class="btn btn-primary">{{ __('form.Add New') }}</button>
-                </div>
+                </div> --}}
             </form>
         </div>
         <div class="page-meta card p-3 ">
@@ -107,7 +107,7 @@
                                     @error('hsn.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='qty.0' >
+                                    <input type="number" class="border-0" wire:model='qty.0' step='.01'>
                                     @error('qty.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
@@ -115,11 +115,11 @@
                                     @error('unit.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='weight.0' >
+                                    <input type="number" class="border-0" wire:model='weight.0'  step='.01'>
                                     @error('weight.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='rate.0' >
+                                    <input type="number" class="border-0" wire:model='rate.0'  step='.01'>
                                     @error('rate.0') {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
@@ -143,7 +143,7 @@
                                     @error('hsn.'.$value) {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='qty.{{ $value }}'>
+                                    <input type="number" class="border-0" wire:model='qty.{{ $value }}'>
                                     @error('qty.'.$value) {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
@@ -152,11 +152,11 @@
 
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='weight.{{ $value }}'>
+                                    <input type="number" class="border-0" wire:model='weight.{{ $value }}'>
                                     @error('weight.'.$value) {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">
-                                    <input type="text" class="border-0" wire:model='rate.{{ $value }}'>
+                                    <input type="number" class="border-0" wire:model='rate.{{ $value }}'>
                                     @error('rate.'.$value) {{ $message }}@enderror
                                 </td>
                                 <td class="text-center">

@@ -7,6 +7,10 @@
 @yield('style')
 </head>
 <body class="layout-boxed">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+    <x-livewire-alert::scripts />
+
 
     <!-- BEGIN LOADER -->
     <div id="load_screen">
@@ -20,6 +24,7 @@
 
     <!--  BEGIN NAVBAR  -->
     @include('includes.header')
+
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -54,6 +59,9 @@
     @yield('script')
     @include('sweetalert::alert')
     @livewireScripts
+
+    <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script> 
+<x-livewire-alert::flash />
 </body>
 
 </html>

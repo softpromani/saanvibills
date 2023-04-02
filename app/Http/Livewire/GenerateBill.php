@@ -6,14 +6,17 @@ use App\Helpers\Helper;
 use App\Models\Bill;
 use App\Models\Customer;
 use App\Models\ShopHasCustomer;
+use App\Models\Vendor;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class GenerateBill extends Component
 {
+    use LivewireAlert;
     public $pd, $hsn, $qty,$unit,$weight,$rate,$taxableval;
     public $updateMode = false;
     public $inputs = [];
@@ -49,6 +52,7 @@ class GenerateBill extends Component
 
     public function updated()
     {
+        
        $this->calculate();
     }
     public function render()
@@ -79,14 +83,14 @@ class GenerateBill extends Component
     {
        
         $search=$this->search_customer_val;
-        // dd($search);
-       $this->customer=Auth::guard(Helper::getGuard())->user()->customers->where(function($query) use($search){
-        return $query->where('mobile',$search)->orWhere('email',$search);
-       })->first();
-       dd($this->customer);
-       if(empty($this->customer)){
-        Session::flash('error','Customer Not Available');
-       }
+        $customer=Vendor::find(Auth::guard(Helper::getGuard())->user()->id)->customers()->where('mobile',$search)->orWhere('email',$search)->first();
+        if($customer){
+            $this->customer=$customer;
+        }
+        else
+        {
+            $this->alert('warning','OOP\'s Customer not Found',['position'=>'center']);
+        }
 
     }
   
@@ -132,11 +136,11 @@ class GenerateBill extends Component
         ]);
         if($r){
             $r->bill_data($this->pd, $this->hsn, $this->qty,$this->unit,$this->weight,$this->rate,$this->taxableval);
-            Alert::success('Bill Created Successfully');
+           $this->alert('success','Bill Created Successfully',['position'=>'center']);
         }
         else
         {
-            Alert::error('Something Went Wrong');
+          $this->alert('warning','Something Went Wrong',['position'=>'center']);
         }
 
         return redirect()->route('shop.billing.view');

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Customer;
+use App\Models\PermissionName;
 use App\Models\ShopHasCustomer;
 use App\Models\TimeZone;
 use Exception;
@@ -38,7 +39,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $shop_has_customer=ShopHasCustomer::with('customer')->where('shop_id',Auth::guard('shop')->user()->id)->get();
+        $shop_has_customer=ShopHasCustomer::with('customer')->where('shop_id',Auth::guard(Helper::getGuard())->user()->id)->get();
         return view('customers.view_customer',compact('shop_has_customer'));
     }
 
@@ -85,6 +86,7 @@ class CustomerController extends Controller
             'address'=>$request->address,
             'image'=>ImageUpload::simpleUpload('customer',$request->pic,'customer')??'',
         ]);
+        if(Helper::getGuard()==PermissionName::$shop){
         $shop_has_customer=ShopHasCustomer::firstOrCreate(
             [
                 'shop_id'=>Auth::guard('shop')->user()->id,
@@ -95,6 +97,7 @@ class CustomerController extends Controller
             'shop_id'=>Auth::guard('shop')->user()->id,
             'customer_id'=>$customer->id??''
          ]);
+        }
         if($shop_has_customer){
             Session::flash('success', 'Customer created successfully');
         
