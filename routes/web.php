@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\GeneralController;
@@ -39,6 +40,7 @@ Route::group(['prefix'=>'auth','as'=>'auth.'],function(){
     Route::post('admin-login',[AuthController::class,'admin_login'])->name('admin-login');
 
 });
+
 //General route for country/state/city
 Route::group(['prefix' => 'general', 'as' => 'general.'], function () {
     Route::post('states-in-country', [GeneralController::class, 'states_in_country'])->name('states-in-country');

@@ -52,7 +52,7 @@ class GenerateBill extends Component
 
     public function updated()
     {
-        
+
        $this->calculate();
     }
     public function render()
@@ -62,7 +62,7 @@ class GenerateBill extends Component
         if(!empty($this->inputs) and count($this->inputs)>0){
             $this->calculate();
         }
-      
+
         return view('livewire.generate-bill')->extends('master');
     }
 
@@ -76,12 +76,12 @@ class GenerateBill extends Component
     public function remove_bill_field($i)
     {
         unset($this->inputs[$i]);
-       
+
     }
 
     public function search_customer()
     {
-       
+
         $search=$this->search_customer_val;
         $customer=Vendor::find(Auth::guard(Helper::getGuard())->user()->id)->customers()->where('mobile',$search)->orWhere('email',$search)->first();
         if($customer){
@@ -93,7 +93,7 @@ class GenerateBill extends Component
         }
 
     }
-  
+
     public function calculate()
     {
         $this->total_amount=0;
@@ -107,8 +107,8 @@ class GenerateBill extends Component
         }
        $this->taxableval[$k]=number_format($this->qty[$k]*$this->rate[$k],2);
        $this->total_amount +=$this->qty[$k]*$this->rate[$k];
-      
-        
+
+
       }
     if($this->weight and count($this->weight)>0){
         $this->total_weight=array_sum($this->weight);
@@ -151,5 +151,5 @@ class GenerateBill extends Component
         dd();
     }
 
-    
+
 }

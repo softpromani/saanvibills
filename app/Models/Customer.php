@@ -33,4 +33,5 @@ class Customer extends Authenticatable
     {
         return $this->belongsTo(City::class, 'city');
     }
+
 }

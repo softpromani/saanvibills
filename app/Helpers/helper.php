@@ -22,7 +22,7 @@ class Helper
     public static function getCountries()
     {
         return $countries = Country::get();
-    } 
+    }
     public static function getStateByCountry($id)
     {
         try {
@@ -88,10 +88,10 @@ class Helper
         {
             return PermissionName::$customer;
         }
-        elseif(Auth::guard(PermissionName::$admin)->check())
-        {
-            return PermissionName::$admin;
-        }
-      
+        // elseif(Auth::guard(PermissionName::$admin)->check())
+        // {
+        //     return PermissionName::$admin;
+        // }
+
     }
 }

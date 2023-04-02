@@ -63,17 +63,14 @@ class ShopDetailsController extends Controller
             'vaddress'=>'required',
             'signature'=>'required',
            ]);
-           if ($request->hasFile('signature')) {
-                    $signature = time() . rand(1, 10000) . '.' . $request->signature->extension();
-                    $request->signature->storeAs('shop/signature', $signature);
-                }
+
            VendorDetail::find(Auth::guard(Helper::getGuard())->id())->update([
             'time_zone'=>$request->timezone,
             'currency'=>$request->currency,
             'vendor_name'=>$request->name,
             'vendore_email'=>$request->email,
             'vendore_mobile'=>$request->mobile,
-            'signature'=>$signature,
+            'signature'=>$request->hasFile('signature')?ImageUpload::simpleUpload('shop/signature',$request->signature,'signature'):'',
             'vendore_address'=>$request->vaddress,
            ]);
 
