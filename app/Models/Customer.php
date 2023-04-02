@@ -20,4 +20,17 @@ class Customer extends Authenticatable
     {
       return $this->belongsToMany(Shop::class,'customer_id');
     }
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+
+    public function state_info()
+    {
+        return $this->belongsTo(State::class, 'state');
+    }
+    public function city_info()
+    {
+        return $this->belongsTo(City::class, 'city');
+    }
 }

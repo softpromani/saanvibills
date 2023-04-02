@@ -22,4 +22,5 @@ return [
     'assign permission' =>'Assign Permission',
     'billing'=>'Billing',
     'generatebill'=>'Generate Billing',
+    'view_bill'=>'View Billing'
 ];

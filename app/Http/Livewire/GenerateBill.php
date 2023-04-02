@@ -146,4 +146,6 @@ class GenerateBill extends Component
     {
         dd();
     }
+
+    
 }
