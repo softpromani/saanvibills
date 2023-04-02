@@ -33,7 +33,7 @@ Route::get('vendore-city/{id}',[ShopDetailsController::class,'vendorecity'])->na
 Route::get('dashboard',[ShopDetailsController::class,'dashboard'])->name('dashboard');
 
 Route::get('billing-view',GenerateBill::class)->name('billing.view');
-Route::get('invoice-view',[InvoiceController::class,'invoice'])->name('invoice.view');
+Route::get('invoice-view/{id}',[InvoiceController::class,'invoice'])->name('invoice.view');
 Route::get('invoice-edit',[InvoiceController::class,'invoice_edit'])->name('invoice.edit');
 Route::get('billing-show',[ShopController::class,'bill_show'])->name('billing.show');
 Route::resource('customer', CustomerController::class)->name('customer','');

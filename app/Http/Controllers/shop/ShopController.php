@@ -52,7 +52,7 @@ class ShopController extends Controller
         dd(Filepond::field($request->clogo));
     }
     public function bill_show(){
-        $bill_data=Bill::where('shop_id',Auth::guard('shop')->user()->id)->latest()->get();
+        $bill_data=Bill::where('shop_id',Auth::guard('shop')->user()->id)->latest()->paginate(10);
         return view('shop.view_bill',compact('bill_data'));
     }
 }
