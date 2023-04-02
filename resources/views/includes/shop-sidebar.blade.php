@@ -61,10 +61,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="register" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="{{route('admin.customer.index')}}"> {{__('sidebar.register')}} </a>
+                        <a href="{{route('shop.customer.index')}}"> {{__('sidebar.register')}} </a>
                     </li>
                     <li>
-                        <a href="{{route('admin.customer.view')}}">{{__('sidebar.view customer')}}</a>
+                        <a href="{{route('shop.customer.create')}}">{{__('sidebar.view customer')}}</a>
                     </li>
                 </ul>
             </li>
@@ -81,6 +81,9 @@
                 <ul class="collapse submenu list-unstyled" id="vendor" data-bs-parent="#accordionExample">
                     <li>
                         <a href="{{route('shop.billing.view')}}"> {{__('sidebar.generatebill')}} </a>
+                    </li>
+                    <li>
+                        <a href="{{route('shop.billing.show')}}"> {{__('sidebar.view_bill')}} </a>
                     </li>
                 </ul>
             </li>

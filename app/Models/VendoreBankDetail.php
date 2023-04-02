@@ -10,5 +10,4 @@ class VendoreBankDetail extends Model
 {
     use HasFactory,SoftDeletes;
     Protected $guarded=[];
-
 }

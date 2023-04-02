@@ -16,7 +16,7 @@
     </div>
     <!-- /BREADCRUMB -->
     <div class="page-meta card p-3 ">
-        <form class="row g-3" action="{{route('shop.customer.store')}}" method="POST" enctype="multipart/form-data">
+        <form class="row g-3" action="{{route('admin.customer.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">{{__('form.profile')}}</label>
@@ -60,25 +60,14 @@
                 <select id="state" name="state" class="form-select">
                     @isset($customer)
                     @foreach (Helper::getStateByCountry($customer->country_id) as $st)
-                    <option value="{{$st->id}}" @selected($st->id==$customer->state_id)>{{$st->name}}</option>
+                    <option value="{{$st->id}}" @selected($st->id==$customer->state)>{{$st->name}}</option>
                     @endforeach
                     @else
                     <option value="" selected disabled>--Select State--</option>
                     @endisset
                 </select>
             </div>
-            <div class="col-md-4">
-                <label for="city" class="form-label">{{__('form.city')}}</label>
-                <select id="city" name="city" class="form-select">
-                    @isset($customer)
-                    @foreach (Helper::getCitiesByState($customer->state) as $city)
-                    <option value="{{$city->id}}" @selected($city->id==$customer->city_id)>{{$city->name}}</option>
-                    @endforeach
-                    @else
-                    <option value="" selected disabled>--Select City--</option>
-                    @endisset
-                </select>
-            </div>
+            
             <div class="col-md-6">
                 <label for="currency" class="form-label">{{__('form.currency')}}</label>
                 <select id="currency" name="currency" class="form-select">

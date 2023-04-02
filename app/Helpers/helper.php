@@ -68,13 +68,13 @@ class Helper
     }
 
     public static function getOwner(){
-        if(Auth::guard(Role::$customer)->check()){
-            if(Auth::guard(Role::$customer)->user()->type==Customer::$owner){
+        if(Auth::guard(PermissionName::$customer)->check()){
+            if(Auth::guard(PermissionName::$customer)->user()->type==Customer::$owner){
                 return Helper::getUserId();
             }
-            else if(Auth::guard(Role::$customer)->user()->type==Customer::$employee)
+            else if(Auth::guard(PermissionName::$customer)->user()->type==Customer::$employee)
             {
-                return Auth::guard(Role::$customer)->user()->owner_id;
+                return Auth::guard(PermissionName::$customer)->user()->owner_id;
             }
         }
     }

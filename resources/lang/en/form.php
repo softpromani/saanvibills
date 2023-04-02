@@ -7,6 +7,7 @@ return
     'last name'=>'Last Name',
     'email'=>'Email',
     'mobile'=>'Mobile',
+    'profile' =>'Profile',
     'ID/ TPIN/ TIN NO*'=>'ID/ TPIN/ TIN NO*',
     'pincode'=>'Pincode',
     'country'=>'Country',

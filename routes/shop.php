@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Billing\BillingController;
 use App\Http\Controllers\shop\InvoiceController;
+use App\Http\Controllers\customer\CustomerController;
+use App\Http\Controllers\shop\BillingController as ShopBillingController;
 use App\Http\Controllers\shop\ShopController;
 use App\Http\Controllers\shop\ShopDetailsController;
 use App\Http\Controllers\UsersController;
@@ -33,3 +35,5 @@ Route::get('dashboard',[ShopDetailsController::class,'dashboard'])->name('dashbo
 Route::get('billing-view',GenerateBill::class)->name('billing.view');
 Route::get('invoice-view',[InvoiceController::class,'invoice'])->name('invoice.view');
 Route::get('invoice-edit',[InvoiceController::class,'invoice_edit'])->name('invoice.edit');
+Route::get('billing-show',[ShopController::class,'bill_show'])->name('billing.show');
+Route::resource('customer', CustomerController::class)->name('customer','');

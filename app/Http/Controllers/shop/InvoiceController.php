@@ -10,7 +10,7 @@ class InvoiceController extends Controller
 {
     public function invoice()
     {
-        $bills = Bill::find(5);
+        $bills = Bill::find(12);
         return view('invoice.invoice',compact('bills'));
     }
     public function invoice_edit()

@@ -37,6 +37,24 @@ class Bill extends Model
 
     public function company()
     {
-        return $this->hasMany(VendoreCompanyDetails::class,'shop_company_id');
+        return $this->hasMany(VendoreCompanyDetails::class,'id','shop_company_id');
+    }
+    public function bank()
+    {
+        return $this->hasOne(VendoreBankDetail::class,'company_id','shop_company_id');
+    }
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id','id');
+    }
+
+    public function billdatas()
+    {
+       return $this->hasMany(BillData::class,'bill_id');
+    }
+
+    public function currency()
+    {
+       return $this->belongsTo(Currency::class,'bill_currency_id');
     }
 }

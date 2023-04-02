@@ -22,6 +22,8 @@
     <link href="{{asset('assets/src/assets/css/light/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/src/assets/css/dark/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <meta name="base-url" content="{{url('/')}}">
+    <meta name="csrf-token" content="{{csrf_token()}}">
 
 <style>
     .dt-button{

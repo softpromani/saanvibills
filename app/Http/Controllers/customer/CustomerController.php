@@ -2,9 +2,19 @@
 
 namespace App\Http\Controllers\customer;
 
+use App\Helpers\Helper;
+use App\Helpers\ImageUpload;
 use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\Currency;
 use App\Models\Customer;
+use App\Models\ShopHasCustomer;
+use App\Models\TimeZone;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -15,7 +25,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-       return view('customers.register_customer');
+        $countries = Country::get();
+        $timezones = TimeZone::get();
+        $currencies=Currency::get();
+       return view('customers.register_customer',compact('countries','timezones','currencies'));
     }
 
     /**
@@ -25,7 +38,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        $shop_has_customer=ShopHasCustomer::with('customer')->where('shop_id',Auth::guard('shop')->user()->id)->get();
+        return view('customers.view_customer',compact('shop_has_customer'));
     }
 
     /**
@@ -48,19 +62,54 @@ class CustomerController extends Controller
             'city'=>'required',
             'address'=>'required',
         ]);
-        Customer::create([
+
+        try{ 
+           $customer= Customer::firstOrCreate(
+            [
+                'tin_no' => $request->tin_no,
+                'email'=>$request->email
+            ],
+            [
             'fname'=>$request->fname,
             'lname'=>$request->lname,
             'email'=>$request->email,
+            'password'=>Hash::make(123456),
             'mobile'=>$request->mobile,
             'tin_no'=>$request->tin_no,
             'pincode'=>$request->pincode,
-            'country'=>$request->country,
+            'country_id'=>$request->country,
             'state'=>$request->state,
             'city'=>$request->city,
+            'timezone_id'=>$request->timezone,
+            'currency'=>$request->currency,
             'address'=>$request->address,
+            'image'=>ImageUpload::simpleUpload('customer',$request->pic,'customer')??'',
         ]);
-        return redirect()->route('customer.view')->with('toast_success','customer created successfully !');
+        $shop_has_customer=ShopHasCustomer::firstOrCreate(
+            [
+                'shop_id'=>Auth::guard('shop')->user()->id,
+                'customer_id'=>$customer->id??''
+            ],
+            [
+        
+            'shop_id'=>Auth::guard('shop')->user()->id,
+            'customer_id'=>$customer->id??''
+         ]);
+        if($shop_has_customer){
+            Session::flash('success', 'Customer created successfully');
+        
+        }
+        else{
+            Session::flash('error', 'Customer not created');
+        
+        }
+                   
+        return redirect()->back(); 
+    }
+    catch (Exception $ex) {
+        Helper::handleError($ex);
+        return redirect()->back();
+    }   
     }
 
     /**
@@ -106,11 +155,5 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function customer_view()
-    {
-        $customer=Customer::get();
-        return view('customers.view_customer',compact('customer'));
     }
 }

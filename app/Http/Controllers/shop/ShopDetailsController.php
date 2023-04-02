@@ -70,7 +70,7 @@ class ShopDetailsController extends Controller
             'vendor_name'=>$request->name,
             'vendore_email'=>$request->email,
             'vendore_mobile'=>$request->mobile,
-            'signature'=>$request->hasFile('signature')?ImageUpload::simpleUpload('shop/signature',$request->stamplogo,'signature'):'',
+            'signature'=>$request->hasFile('signature')?ImageUpload::simpleUpload('shop/signature',$request->signature,'signature'):'',
             'vendore_address'=>$request->vaddress,
            ]);
 
