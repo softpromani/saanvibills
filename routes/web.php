@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return route('auth.shop-view');
+  return redirect()->route('auth.shop-view');
 });
 
 Route::get('login_view',[AuthController::class,'login']);
