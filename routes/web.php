@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\RolePermission\PermissionController;
@@ -26,7 +27,7 @@ Route::get('/', function () {
 Route::get('login_view',[AuthController::class,'login']);
 Route::post('login',[AuthController::class,'store']);
 Route::get('logout',function(){
-        Auth::guard('vendor')->logout();
+        Auth::guard(Helper::getGuard())->logout();
         return back()->with('toast_success','User logout successfully !');
     });
 Route::group(['prefix'=>'auth','as'=>'auth.'],function(){

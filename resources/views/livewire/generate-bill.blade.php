@@ -65,7 +65,7 @@
                         id="inputCity">
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">{{ __('form.Add New') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('form.add_new') }}</button>
                 </div>
             </form>
         </div>
@@ -172,18 +172,18 @@
                         </tbody>
                     </table>
                 </div>
-                
+
             <div class="card-foot m-3">
                 <div class="row">
                     <div class="col-md-6">
                         <h6>Total Weight of Product (kg) {{ $total_weight }}</h6>
                     </div>
                     <div class="col-md-6">
-                       
+
                         <h6>Total Amount of Product ({{ Auth::guard(\App\Helpers\Helper::getGuard())->user()->vendor_detail->currency??'' }}) {{number_format($this->total_amount)}}</h6>
                     </div>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">

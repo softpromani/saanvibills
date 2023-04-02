@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\shop;
 
+use App\Helpers\Helper;
 use App\Helpers\ImageUpload;
 use App\Http\Controllers\Controller;
 use App\Models\City;
@@ -28,27 +29,15 @@ class ShopDetailsController extends Controller
         'stamplogo'=>'required',
         'profile'=>'required',
        ]);
-       if ($request->hasFile('clogo')) {
-                $clogo = time() . rand(1, 10000) . '.' . $request->clogo->extension();
-                $request->clogo->storeAs('shop/companylogo',$clogo);
-            }
-       if ($request->hasFile('stamplogo')) {
-                $stamplogo = time() . rand(1, 10000) . '.' . $request->stamplogo->extension();
-                $request->stamplogo->storeAs('shop/stamplogo', $stamplogo);
-            }
-       if ($request->hasFile('profile')) {
-                $profile = time() . rand(1, 10000) . '.' . $request->profile->extension();
-                $request->profile->storeAs('shop/profile', $profile);
-            }
        VendorDetail::create([
-        'vendore_id' => Auth::guard('vendor')->id(),
+        'vendore_id' => Auth::guard(Helper::getGuard())->id(),
         'company_name' => $request->cname,
-        'logo' => $request->hasFile('clogo')?ImageUpload::simpleUpload('shop',$request->clogo,'Logo'):'',
-        'satamp_logo' => $request->hasFile('stamplogo')?ImageUpload::simpleUpload('shop',$request->stamplogo,'Logo'):'',
-        'profile_image' => $profile,
+        'logo' => $request->hasFile('clogo')?ImageUpload::simpleUpload('shop/companylogo',$request->clogo,'Logo'):'',
+        'satamp_logo' => $request->hasFile('stamplogo')?ImageUpload::simpleUpload('shop/stamplogo',$request->stamplogo,'stamplogo'):'',
+        'profile_image' => $request->hasFile('profile')?ImageUpload::simpleUpload('shop/profile',$request->stamplogo,'profile'):'',
        ]);
 
-       Vendor::find(Auth::guard('vendor')->id())->increment('step');
+       Vendor::find(Auth::guard(Helper::getGuard())->id())->increment('step');
        return back()->with('toast_success','Vendor Basic Information added Successfully!');
     }
 
@@ -74,21 +63,18 @@ class ShopDetailsController extends Controller
             'vaddress'=>'required',
             'signature'=>'required',
            ]);
-           if ($request->hasFile('signature')) {
-                    $signature = time() . rand(1, 10000) . '.' . $request->signature->extension();
-                    $request->signature->storeAs('shop/signature', $signature);
-                }
-           VendorDetail::find(Auth::guard('vendor')->id())->update([
+
+           VendorDetail::find(Auth::guard(Helper::getGuard())->id())->update([
             'time_zone'=>$request->timezone,
             'currency'=>$request->currency,
             'vendor_name'=>$request->name,
             'vendore_email'=>$request->email,
             'vendore_mobile'=>$request->mobile,
-            'signature'=>$signature,
+            'signature'=>$request->hasFile('signature')?ImageUpload::simpleUpload('shop/signature',$request->stamplogo,'signature'):'',
             'vendore_address'=>$request->vaddress,
            ]);
 
-           Vendor::find(Auth::guard('vendor')->id())->increment('step');
+           Vendor::find(Auth::guard(Helper::getGuard())->id())->increment('step');
            return back()->with('toast_success','Vendor Basic Information added Successfully!');
     }
 
@@ -106,7 +92,7 @@ class ShopDetailsController extends Controller
             'iec'=>'required',
             'companyaddress'=>'required',
         ]);
-        $id=Auth::guard('vendor')->id();
+        $id=Auth::guard(Helper::getGuard())->id();
         $data_id =VendoreCompanyDetails::create([
             'vendore_id'=>$id,
             'owner_id'=>$id,
@@ -122,7 +108,7 @@ class ShopDetailsController extends Controller
             'iec'=>$request->iec,
         ]);
         Session::put('vendoredetails', $data_id);
-        Vendor::find(Auth::guard('vendor')->id())->increment('step');
+        Vendor::find(Auth::guard(Helper::getGuard())->id())->increment('step');
         return back()->with('toast_success','Vendor Company Details added Successfully!');
     }
     public function vendorebank(Request $request)
@@ -135,7 +121,7 @@ class ShopDetailsController extends Controller
             'accountno'=>'required',
             'adcode'=>'required',
         ]);
-        $id=Auth::guard('vendor')->id();
+        $id=Auth::guard(Helper::getGuard())->id();
         VendoreBankDetail::create([
             'vendore_id'=>$id,
             'owner_id'=>$id,
@@ -147,7 +133,7 @@ class ShopDetailsController extends Controller
             'account_no'=>$request->accountno,
             'ad_code'=>$request->adcode,
         ]);
-        Vendor::find(Auth::guard('vendor')->id())->increment('step');
+        Vendor::find(Auth::guard(Helper::getGuard())->id())->increment('step');
         return back()->with('toast_success','Vendor Company Details added Successfully!');
     }
 

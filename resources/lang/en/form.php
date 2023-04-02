@@ -52,4 +52,5 @@ return
     'customername' =>'Customer Name*',
     'vehicleno' =>'Vehicle No*',
     'products' =>'Products',
+    'add_new' =>'Add New',
 ];

@@ -29,4 +29,14 @@ class Bill extends Model
         }
         }
     }
+
+    public function vendore()
+    {
+       return $this->belongsTo(Vendor::class,'shop_id');
+    }
+
+    public function company()
+    {
+        return $this->hasMany(VendoreCompanyDetails::class,'shop_company_id');
+    }
 }
