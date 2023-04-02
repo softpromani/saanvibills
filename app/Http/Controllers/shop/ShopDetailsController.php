@@ -32,9 +32,9 @@ class ShopDetailsController extends Controller
        VendorDetail::create([
         'vendore_id' => Auth::guard(Helper::getGuard())->id(),
         'company_name' => $request->cname,
-        'logo' => $request->hasFile('clogo')?ImageUpload::simpleUpload('shop/companylogo',$request->clogo,'Logo'):'',
+        'logo' => $request->hasFile('clogo')?ImageUpload::simpleUpload('shop/companylogo',$request->clogo,'logo'):'',
         'satamp_logo' => $request->hasFile('stamplogo')?ImageUpload::simpleUpload('shop/stamplogo',$request->stamplogo,'stamplogo'):'',
-        'profile_image' => $request->hasFile('profile')?ImageUpload::simpleUpload('shop/profile',$request->stamplogo,'profile'):'',
+        'profile_image' =>  $request->hasFile('profile')?ImageUpload::simpleUpload('shop/profile',$request->stamplogo,'profile'):'',
        ]);
 
        Vendor::find(Auth::guard(Helper::getGuard())->id())->increment('step');
