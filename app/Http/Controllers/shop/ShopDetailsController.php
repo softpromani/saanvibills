@@ -63,7 +63,6 @@ class ShopDetailsController extends Controller
             'vaddress'=>'required',
             'signature'=>'required',
            ]);
-return Auth::guard(Helper::getGuard())->id();
            VendorDetail::find(Auth::guard(Helper::getGuard())->id())->update([
             'time_zone'=>$request->timezone,
             'currency'=>$request->currency,
