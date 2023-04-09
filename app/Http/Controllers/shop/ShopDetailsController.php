@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\shop;
 
-use App\Helpers\helper;
+use App\Helpers\Helper;
 use App\Helpers\ImageUpload;
 use App\Http\Controllers\Controller;
 use App\Models\City;
