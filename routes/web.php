@@ -30,7 +30,7 @@ Route::post('login',[AuthController::class,'store']);
 Route::get('logout',function(){
         Auth::guard(Helper::getGuard())->logout();
         return back()->with('toast_success','User logout successfully !');
-    });
+    })->name('logout');
 Route::group(['prefix'=>'auth','as'=>'auth.'],function(){
     Route::get('shop',[AuthController::class,'shop_view'])->name('shop-view');
     Route::post('shop-login',[AuthController::class,'shop_login'])->name('shop-login');
