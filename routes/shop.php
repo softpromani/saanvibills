@@ -36,4 +36,5 @@ Route::get('billing-view',GenerateBill::class)->name('billing.view');
 Route::get('invoice-view/{id}',[InvoiceController::class,'invoice'])->name('invoice.view');
 Route::get('invoice-edit',[InvoiceController::class,'invoice_edit'])->name('invoice.edit');
 Route::get('billing-show',[ShopController::class,'bill_show'])->name('billing.show');
+Route::get('invoice-send/{id}',[InvoiceController::class,'send_bill_on_email'])->name('invoice-send');
 Route::resource('customer', CustomerController::class)->name('customer','');

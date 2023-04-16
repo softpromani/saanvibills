@@ -27,7 +27,7 @@
 
                     <div class="row d-flex">
                         <div class="col-xl-3 col-md-3 col-sm-6">
-                            <a href="javascript:void(0);" class="btn btn-primary btn-send">Send
+                            <a href="{{ route('shop.invoice-send',$bills->id) }}" class="btn btn-primary btn-send">Send
                                 Invoice</a>
                         </div>
                         <div class="col-xl-3 col-md-3 col-sm-6">

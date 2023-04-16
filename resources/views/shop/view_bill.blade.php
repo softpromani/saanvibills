@@ -43,7 +43,7 @@
                                             <td>
                                                 <div class="d-flex">
                                                     <div class="usr-img-frame me-2 rounded-circle">
-                                                        <img alt="avatar" class="img-fluid rounded-circle" src="{{ asset('storage/'.$bill->customer->image) }}" ../src/assets/img/profile-12.jpeg>
+                                                        <img alt="avatar" class="img-fluid rounded-circle" src="{{ asset('storage/'.$bill->customer->image ?? '') }}" ../src/assets/img/profile-12.jpeg>
                                                     </div>
                                                     <p class="align-self-center mb-0 user-name">{{$bill->customer_name??''}}</p>
                                                 </div>
