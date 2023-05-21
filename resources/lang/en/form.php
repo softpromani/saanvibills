@@ -54,4 +54,7 @@ return
     'vehicleno' =>'Vehicle No*',
     'products' =>'Products',
     'add_new' =>'Add New',
+    'lut' =>'Add Lut',
+    'luts' =>'Lut',
+    'year' =>'year',
 ];

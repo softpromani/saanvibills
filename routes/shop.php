@@ -3,6 +3,7 @@
 use App\Http\Controllers\Billing\BillingController;
 use App\Http\Controllers\shop\InvoiceController;
 use App\Http\Controllers\customer\CustomerController;
+use App\Http\Controllers\LutInfoController;
 use App\Http\Controllers\shop\BillingController as ShopBillingController;
 use App\Http\Controllers\shop\ShopController;
 use App\Http\Controllers\shop\ShopDetailsController;
@@ -38,3 +39,4 @@ Route::get('invoice-edit',[InvoiceController::class,'invoice_edit'])->name('invo
 Route::get('billing-show',[ShopController::class,'bill_show'])->name('billing.show');
 Route::get('invoice-send/{id}',[InvoiceController::class,'send_bill_on_email'])->name('invoice-send');
 Route::resource('customer', CustomerController::class)->name('customer','');
+Route::resource('lut', LutInfoController::class)->name('lut','');
